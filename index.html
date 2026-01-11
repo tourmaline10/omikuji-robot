@@ -1,3 +1,5 @@
+
+</html>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,16 +7,39 @@
   <title>おみくじロボット</title>
 </head>
 <body>
-  <h1>おみくじロボット 🤖🎋</h1>
-  <button onclick="omikuji()">おみくじを引く</button>
+  <h1>おみくじロボット 🎋</h1>
+  <button onclick="draw()">おみくじを引く</button>
   <p id="result"></p>
+  <p id="message"></p>
 
   <script>
-    function omikuji() {
-      const list = ["大吉 🎉","中吉 😊","小吉 🙂","吉 😌","凶 😢"];
-      const r = Math.floor(Math.random() * list.length);
+    const omikuji = [
+      "大吉 🎉",
+      "中吉 😊",
+      "小吉 🙂",
+      "吉 😌",
+      "末吉 🤏",
+      "凶 😢",
+      "大凶 💀"
+    ];
+
+    const messages = {
+      "大吉 🎉": "今日は最高の一日！新しいことに挑戦しよう。",
+      "中吉 😊": "良い流れ。焦らず進めばOK。",
+      "小吉 🙂": "小さな幸せを大切に。",
+      "吉 😌": "安定した一日。コツコツが吉。",
+      "末吉 🤏": "後半に運気アップ。油断しないで。",
+      "凶 😢": "無理せず慎重に行動しよう。",
+      "大凶 💀": "今日は休憩日。安全第一！"
+    };
+
+    function draw() {
+      const r = Math.floor(Math.random() * omikuji.length);
+      const result = omikuji[r];
       document.getElementById("result").textContent =
-        "今日の運勢は「" + list[r] + "」です";
+        "今日の運勢：" + result;
+      document.getElementById("message").textContent =
+        messages[result];
     }
   </script>
 </body>
