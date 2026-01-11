@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>おみくじロボット</title>
+</head>
+<body>
+  <h1>おみくじロボット 🤖🎋</h1>
+  <button onclick="omikuji()">おみくじを引く</button>
+  <p id="result"></p>
+
+  <script>
+    function omikuji() {
+      const list = ["大吉 🎉","中吉 😊","小吉 🙂","吉 😌","凶 😢"];
+      const r = Math.floor(Math.random() * list.length);
+      document.getElementById("result").textContent =
+        "今日の運勢は「" + list[r] + "」です";
+    }
+  </script>
+</body>
+</html>
