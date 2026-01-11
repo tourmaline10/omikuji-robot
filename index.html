@@ -1,16 +1,67 @@
-
-</html>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>おみくじロボット</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fff7e6, #ffe4ec);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+    button {
+      background: #ff6f91;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .result {
+      font-size: 20px;
+      margin-top: 16px;
+    }
+    .message {
+      margin-top: 12px;
+      color: #555;
+    }
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <h1>おみくじロボット 🎋</h1>
-  <button onclick="draw()">おみくじを引く</button>
-  <p id="result"></p>
-  <p id="message"></p>
+  <div class="container">
+    <h1>おみくじロボット 🎋</h1>
+    <button onclick="draw()">おみくじを引く</button>
+    <div class="result" id="result"></div>
+    <div class="message" id="message"></div>
+    <footer>
+      今日の運勢を気軽にチェック
+    </footer>
+  </div>
 
   <script>
     const omikuji = [
@@ -36,10 +87,8 @@
     function draw() {
       const r = Math.floor(Math.random() * omikuji.length);
       const result = omikuji[r];
-      document.getElementById("result").textContent =
-        "今日の運勢：" + result;
-      document.getElementById("message").textContent =
-        messages[result];
+      document.getElementById("result").textContent = "今日の運勢：" + result;
+      document.getElementById("message").textContent = messages[result];
     }
   </script>
 </body>
